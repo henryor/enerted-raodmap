@@ -171,24 +171,21 @@ const EnertedRoadmap = () => {
       {/* Dark overlay */}
       <div className="fixed inset-0 bg-black/90" />
 
-      {/* Header */}
-      <header className={`relative z-10 border-b border-white/10 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
-        <div className="max-w-5xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img
-                src="/logo-enerted.png"
-                alt="Enerted Logo"
-                className="h-40 w-auto"
-              />
-              <span className="text-white text-xl font-light tracking-wide">Innovación</span>
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-gray-500 uppercase tracking-wider">Plan Estratégico</p>
-              <p className="text-lg font-semibold text-white">2026</p>
-            </div>
+      {/* Hero Section with Logo */}
+      <header className={`relative z-10 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
+        <div className="max-w-5xl mx-auto px-6 py-12">
+          <div className="flex flex-col items-center text-center">
+            <img
+              src="/logo-enerted.png"
+              alt="Enerted Logo"
+              className="h-32 md:h-48 w-auto mb-6 brightness-0 invert"
+            />
+            <h1 className="text-3xl md:text-4xl font-bold text-white tracking-wider mb-2">INNOVACIÓN</h1>
+            <div className="w-24 h-px bg-white/30 my-4"></div>
+            <p className="text-gray-400 text-lg uppercase tracking-widest">Plan Estratégico 2026</p>
           </div>
         </div>
+        <div className="border-b border-white/10"></div>
       </header>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-8">
