@@ -18,7 +18,7 @@ const EnertedRoadmap = () => {
       title: "FASE 1: FUNDACIONES",
       period: "Feb - Mar 2025",
       duration: "6 semanas",
-      color: "from-blue-600 to-cyan-600",
+      color: "from-orange-500 to-orange-600",
       objectives: [
         { icon: Scale, text: "Legal: Contratos tipo + certificaciones", status: "active" },
         { icon: Network, text: "Proveedores: Alianzas iniciales (2-3 proveedores clave)", status: "active" },
@@ -32,7 +32,7 @@ const EnertedRoadmap = () => {
       title: "FASE 2: TRACCIÓN",
       period: "Abr - Jun 2025",
       duration: "12 semanas",
-      color: "from-orange-600 to-amber-600",
+      color: "from-orange-500 to-orange-600",
       objectives: [
         { icon: Target, text: "Comercial: Primera campaña de mailing (3 industrias piloto)", status: "pending" },
         { icon: CheckCircle2, text: "Proyectos: 2-3 proyectos piloto ejecutados", status: "pending" },
@@ -45,7 +45,7 @@ const EnertedRoadmap = () => {
       title: "FASE 3: ESCALA",
       period: "Jul - Dic 2025",
       duration: "6 meses",
-      color: "from-emerald-600 to-green-600",
+      color: "from-orange-500 to-orange-600",
       objectives: [
         { icon: TrendingUp, text: "Expansión territorial (otras ciudades)", status: "pending" },
         { icon: Users, text: "Equipo: Incorporar comercial dedicado", status: "pending" },
@@ -59,7 +59,7 @@ const EnertedRoadmap = () => {
       id: 1,
       title: "Estructuración de Portafolio",
       icon: Sparkles,
-      color: "bg-gradient-to-br from-violet-600 to-purple-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Definición de productos estandarizados para automatización industrial y fotovoltaica",
       deliverables: [
         "Paquetes FV: Residencial (2-10kW), Comercial (10-100kW), Industrial (>100kW)",
@@ -71,7 +71,7 @@ const EnertedRoadmap = () => {
       id: 2,
       title: "Legal y Regulatorio",
       icon: Scale,
-      color: "bg-gradient-to-br from-blue-600 to-indigo-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Marco legal y certificaciones para operación comercial",
       deliverables: [
         "Certificaciones UPME para sistemas fotovoltaicos",
@@ -83,7 +83,7 @@ const EnertedRoadmap = () => {
       id: 3,
       title: "Sourcing y Proveedores",
       icon: Network,
-      color: "bg-gradient-to-br from-cyan-600 to-blue-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Alianzas estratégicas con fabricantes China y distribuidores locales",
       deliverables: [
         "Proveedores FV: Longi, JA Solar, Trina Solar",
@@ -95,7 +95,7 @@ const EnertedRoadmap = () => {
       id: 4,
       title: "Base de Datos Comercial",
       icon: Database,
-      color: "bg-gradient-to-br from-orange-600 to-red-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Construcción de BD segmentada y estrategia de email marketing",
       deliverables: [
         "BD segmentada: 500+ empresas industrias clave",
@@ -107,7 +107,7 @@ const EnertedRoadmap = () => {
       id: 5,
       title: "Rediseño Web y SEO",
       icon: Globe,
-      color: "bg-gradient-to-br from-emerald-600 to-teal-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Reestructuración del sitio web con foco en conversión y posicionamiento",
       deliverables: [
         "Nueva arquitectura: Automatización + FV separados",
@@ -119,7 +119,7 @@ const EnertedRoadmap = () => {
       id: 6,
       title: "Alianzas Estratégicas",
       icon: Users,
-      color: "bg-gradient-to-br from-pink-600 to-rose-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Partners financieros, técnicos y comerciales",
       deliverables: [
         "Financieros: Bancolombia Leasing, Findeter",
@@ -131,7 +131,7 @@ const EnertedRoadmap = () => {
       id: 7,
       title: "Modelo Financiero",
       icon: DollarSign,
-      color: "bg-gradient-to-br from-amber-600 to-yellow-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Estructura de ingresos, costos y márgenes objetivo",
       deliverables: [
         "Pricing por servicio y segmento",
@@ -143,7 +143,7 @@ const EnertedRoadmap = () => {
       id: 8,
       title: "KPIs y Gestión",
       icon: BarChart3,
-      color: "bg-gradient-to-br from-slate-600 to-gray-700",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Indicadores de gestión comercial, operacional y financiero",
       deliverables: [
         "Dashboard comercial: leads, conversión, pipeline",
@@ -172,7 +172,7 @@ const EnertedRoadmap = () => {
       <div className="fixed inset-0 opacity-[0.015] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
       
       {/* Animated gradient orbs */}
-      <div className="fixed top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s'}} />
+      <div className="fixed top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s'}} />
       <div className="fixed bottom-0 left-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}} />
 
       {/* Header */}
@@ -202,12 +202,12 @@ const EnertedRoadmap = () => {
         
         {/* Mission Statement */}
         <div className={`mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-orange-600/10 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+          <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-2xl font-bold mb-4 text-orange-400">
               Objetivo del Contrato
             </h2>
             <p className="text-slate-300 leading-relaxed text-lg font-light">
-              Dirección estratégica y liderazgo conceptual para la <span className="text-orange-400 font-medium">estructuración, desarrollo y comercialización</span> de servicios de automatización industrial y productos fotovoltaicos, orientado al <span className="text-blue-400 font-medium">crecimiento comercial</span>, posicionamiento estratégico y <span className="text-purple-400 font-medium">fortalecimiento competitivo</span> en el mercado colombiano.
+              Dirección estratégica y liderazgo conceptual para la <span className="text-orange-400 font-medium">estructuración, desarrollo y comercialización</span> de servicios de automatización industrial y productos fotovoltaicos, orientado al <span className="text-white font-medium">crecimiento comercial</span>, posicionamiento estratégico y <span className="text-orange-400 font-medium">fortalecimiento competitivo</span> en el mercado colombiano.
             </p>
           </div>
         </div>
@@ -354,9 +354,9 @@ const EnertedRoadmap = () => {
 
         {/* Footer CTA */}
         <div className={`mt-16 text-center transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 p-[2px] rounded-2xl">
+          <div className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 p-[2px] rounded-2xl">
             <div className="bg-slate-900 rounded-2xl px-8 py-6">
-              <p className="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              <p className="text-2xl font-bold mb-2 text-orange-400">
                 ¿Listos para transformar ENERTED?
               </p>
               <p className="text-slate-400 font-light">
@@ -365,6 +365,13 @@ const EnertedRoadmap = () => {
             </div>
           </div>
         </div>
+
+        {/* Footer Credits */}
+        <footer className="mt-16 pt-8 border-t border-white/10 text-center">
+          <p className="text-slate-500 text-sm">
+            Diseñado por <span className="text-orange-400 font-medium">Kyrbot Innovations SAS</span>
+          </p>
+        </footer>
 
       </div>
     </div>
