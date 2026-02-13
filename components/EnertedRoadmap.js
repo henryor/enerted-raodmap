@@ -175,11 +175,14 @@ const EnertedRoadmap = () => {
       <header className={`relative z-10 border-b border-white/10 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
         <div className="max-w-5xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            <img
-              src="/logo-enerted.jpg"
-              alt="Enerted Logo"
-              className="h-10 w-auto"
-            />
+            <div className="flex items-center gap-3">
+              <img
+                src="/logo-enerted.png"
+                alt="Enerted Logo"
+                className="h-10 w-auto"
+              />
+              <span className="text-white text-xl font-light tracking-wide">Innovación</span>
+            </div>
             <div className="text-right">
               <p className="text-xs text-gray-500 uppercase tracking-wider">Plan Estratégico</p>
               <p className="text-lg font-semibold text-white">2025</p>
