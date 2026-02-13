@@ -185,13 +185,12 @@ const EnertedRoadmap = () => {
         <div className="max-w-7xl mx-auto px-8 py-8">
           <div className="flex items-start justify-between">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-3xl font-bold tracking-tight">
-                  ENERTED <span className="text-orange-500">Innovación</span>
-                </h1>
+              <div className="flex items-center gap-4 mb-2">
+                <img
+                  src="/logo-enerted.jpg"
+                  alt="Enerted Logo"
+                  className="h-12 w-auto"
+                />
               </div>
               <p className="text-slate-400 text-lg font-light tracking-wide">Plan Estratégico 2025</p>
             </div>
