@@ -21,15 +21,13 @@ const EnertedRoadmap = () => {
   const phases = [
     {
       id: 1,
-      title: "FASE 1: FUNDACIONES",
+      title: "FASE 1: INICIO",
       period: "Feb - Mar 2026",
       duration: "6 semanas",
       objectives: [
-        { icon: Scale, text: "Legal: Contratos tipo + certificaciones" },
         { icon: Network, text: "Proveedores: Alianzas iniciales (2-3 proveedores clave)" },
         { icon: Sparkles, text: "Productos: Paquetes estandarizados (3 por línea)" },
-        { icon: Globe, text: "Web: Rediseño + calculadora solar" },
-        { icon: Database, text: "BD: Primera base segmentada (500 empresas)" }
+        { icon: Globe, text: "Web: Rediseño + calculadora solar" }
       ]
     },
     {
@@ -210,51 +208,6 @@ const EnertedRoadmap = () => {
           )}
         </section>
 
-        {/* Section: Roadmap */}
-        <section className={`mb-6 transition-all duration-700 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-          <button
-            onClick={() => toggleSection('roadmap')}
-            className="w-full bg-white/5 border border-white/10 rounded-lg p-5 text-left hover:bg-white/10 transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-gray-400" />
-                <h2 className="text-xl font-bold text-white">Roadmap Estratégico</h2>
-              </div>
-              <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections['roadmap'] ? 'rotate-180' : ''}`} />
-            </div>
-          </button>
-          {expandedSections['roadmap'] && (
-            <div className="mt-2 space-y-3">
-              {phases.map((phase) => (
-                <div key={phase.id} className="bg-black/50 border border-white/10 rounded-lg p-5">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{phase.period}</p>
-                      <h3 className="text-lg font-bold text-white">{phase.title}</h3>
-                      <p className="text-sm text-gray-500">{phase.duration}</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl font-bold text-white">
-                      {phase.id}
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    {phase.objectives.map((obj, i) => {
-                      const Icon = obj.icon;
-                      return (
-                        <div key={i} className="flex items-start gap-3 text-sm">
-                          <Icon className="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" />
-                          <span className="text-gray-300">{obj.text}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-
         {/* Section: Workstreams */}
         <section className={`mb-6 transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           <button
@@ -275,34 +228,39 @@ const EnertedRoadmap = () => {
                 const Icon = ws.icon;
                 const isExpanded = expandedSections[ws.id];
                 return (
-                  <div key={ws.id} className="bg-black/50 border border-white/10 rounded-lg overflow-hidden">
+                  <div key={ws.id} className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-lg overflow-hidden backdrop-blur-sm">
                     <button
                       onClick={() => toggleSection(ws.id)}
-                      className="w-full p-4 text-left hover:bg-white/5 transition-all"
+                      className="w-full p-5 text-left hover:bg-white/5 transition-all"
                     >
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center">
-                            <Icon className="w-4 h-4 text-white" />
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center shadow-lg">
+                            <Icon className="w-6 h-6 text-white" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-white text-sm">{ws.title}</h3>
-                            <p className="text-xs text-gray-500">{ws.description}</p>
+                            <h3 className="font-bold text-white text-base mb-1">{ws.title}</h3>
+                            <p className="text-sm text-gray-400">{ws.description}</p>
                           </div>
                         </div>
-                        <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                       </div>
                     </button>
                     {isExpanded && (
-                      <div className="px-4 pb-4 pt-2 border-t border-white/5">
-                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Entregables:</p>
-                        <div className="space-y-1">
-                          {ws.deliverables.map((del, i) => (
-                            <div key={i} className="flex items-start gap-2 text-xs">
-                              <span className="text-gray-500">•</span>
-                              <span className="text-gray-300">{del}</span>
-                            </div>
-                          ))}
+                      <div className="px-5 pb-5 pt-2">
+                        <div className="border-t border-white/10 pt-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="w-1 h-4 bg-gradient-to-b from-white/40 to-white/10 rounded-full"></div>
+                            <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Entregables</p>
+                          </div>
+                          <div className="space-y-2.5">
+                            {ws.deliverables.map((del, i) => (
+                              <div key={i} className="flex items-start gap-3 bg-gradient-to-r from-white/5 to-transparent p-3 rounded-lg border border-white/5">
+                                <div className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2 flex-shrink-0"></div>
+                                <span className="text-sm text-gray-300 leading-relaxed">{del}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     )}
