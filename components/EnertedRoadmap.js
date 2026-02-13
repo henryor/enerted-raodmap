@@ -167,16 +167,21 @@ const EnertedRoadmap = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden">
-      {/* Grain texture overlay */}
-      <div className="fixed inset-0 opacity-[0.015] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
-      
+    <div className="min-h-screen text-white overflow-x-hidden relative">
+      {/* Background image */}
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{backgroundImage: "url('https://static.atesspower.com/upload/images/20240613/dda75bc0262229d1140bcc3eec59f933.jpg')"}}
+      />
+      {/* Dark overlay for readability */}
+      <div className="fixed inset-0 bg-slate-950/85" />
+
       {/* Animated gradient orbs */}
       <div className="fixed top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s'}} />
       <div className="fixed bottom-0 left-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}} />
 
       {/* Header */}
-      <header className={`relative border-b border-white/5 backdrop-blur-xl transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
+      <header className={`relative z-10 border-b border-white/5 backdrop-blur-xl transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
         <div className="max-w-7xl mx-auto px-8 py-8">
           <div className="flex items-start justify-between">
             <div>
@@ -198,7 +203,7 @@ const EnertedRoadmap = () => {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-8 py-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 py-12">
         
         {/* Mission Statement */}
         <div className={`mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
@@ -349,20 +354,6 @@ const EnertedRoadmap = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Footer CTA */}
-        <div className={`mt-16 text-center transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 p-[2px] rounded-2xl">
-            <div className="bg-slate-900 rounded-2xl px-8 py-6">
-              <p className="text-2xl font-bold mb-2 text-orange-400">
-                ¿Listos para transformar ENERTED?
-              </p>
-              <p className="text-slate-400 font-light">
-                Innovación • Automatización • Energía Solar • Crecimiento
-              </p>
-            </div>
           </div>
         </div>
 
