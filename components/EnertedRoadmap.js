@@ -1,16 +1,22 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, Target, Users, TrendingUp, CheckCircle2, Zap, Network, Scale, Database, Globe, Award, DollarSign, BarChart3, Sparkles, ChevronRight } from 'lucide-react';
+import { Calendar, Target, Users, TrendingUp, CheckCircle2, Network, Scale, Database, Globe, Award, DollarSign, BarChart3, Sparkles, ChevronDown } from 'lucide-react';
 
 const EnertedRoadmap = () => {
-  const [activePhase, setActivePhase] = useState(0);
-  const [selectedWorkstream, setSelectedWorkstream] = useState(null);
+  const [expandedSections, setExpandedSections] = useState({});
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const toggleSection = (id) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
 
   const phases = [
     {
@@ -18,13 +24,12 @@ const EnertedRoadmap = () => {
       title: "FASE 1: FUNDACIONES",
       period: "Feb - Mar 2025",
       duration: "6 semanas",
-      color: "from-orange-500 to-orange-600",
       objectives: [
-        { icon: Scale, text: "Legal: Contratos tipo + certificaciones", status: "active" },
-        { icon: Network, text: "Proveedores: Alianzas iniciales (2-3 proveedores clave)", status: "active" },
-        { icon: Sparkles, text: "Productos: Paquetes estandarizados (3 por línea)", status: "active" },
-        { icon: Globe, text: "Web: Rediseño + calculadora solar", status: "active" },
-        { icon: Database, text: "BD: Primera base segmentada (500 empresas)", status: "active" }
+        { icon: Scale, text: "Legal: Contratos tipo + certificaciones" },
+        { icon: Network, text: "Proveedores: Alianzas iniciales (2-3 proveedores clave)" },
+        { icon: Sparkles, text: "Productos: Paquetes estandarizados (3 por línea)" },
+        { icon: Globe, text: "Web: Rediseño + calculadora solar" },
+        { icon: Database, text: "BD: Primera base segmentada (500 empresas)" }
       ]
     },
     {
@@ -32,12 +37,11 @@ const EnertedRoadmap = () => {
       title: "FASE 2: TRACCIÓN",
       period: "Abr - Jun 2025",
       duration: "12 semanas",
-      color: "from-orange-500 to-orange-600",
       objectives: [
-        { icon: Target, text: "Comercial: Primera campaña de mailing (3 industrias piloto)", status: "pending" },
-        { icon: CheckCircle2, text: "Proyectos: 2-3 proyectos piloto ejecutados", status: "pending" },
-        { icon: Globe, text: "Contenido: 12 artículos blog (SEO)", status: "pending" },
-        { icon: Users, text: "Alianzas: 1-2 partners estratégicos firmados", status: "pending" }
+        { icon: Target, text: "Comercial: Primera campaña de mailing (3 industrias piloto)" },
+        { icon: CheckCircle2, text: "Proyectos: 2-3 proyectos piloto ejecutados" },
+        { icon: Globe, text: "Contenido: 12 artículos blog (SEO)" },
+        { icon: Users, text: "Alianzas: 1-2 partners estratégicos firmados" }
       ]
     },
     {
@@ -45,21 +49,19 @@ const EnertedRoadmap = () => {
       title: "FASE 3: ESCALA",
       period: "Jul - Dic 2025",
       duration: "6 meses",
-      color: "from-orange-500 to-orange-600",
       objectives: [
-        { icon: TrendingUp, text: "Expansión territorial (otras ciudades)", status: "pending" },
-        { icon: Users, text: "Equipo: Incorporar comercial dedicado", status: "pending" },
-        { icon: Sparkles, text: "Diversificación: Nuevos productos/servicios", status: "pending" }
+        { icon: TrendingUp, text: "Expansión territorial (otras ciudades)" },
+        { icon: Users, text: "Equipo: Incorporar comercial dedicado" },
+        { icon: Sparkles, text: "Diversificación: Nuevos productos/servicios" }
       ]
     }
   ];
 
   const workstreams = [
     {
-      id: 1,
+      id: "ws1",
       title: "Estructuración de Portafolio",
       icon: Sparkles,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Definición de productos estandarizados para automatización industrial y fotovoltaica",
       deliverables: [
         "Paquetes FV: Residencial (2-10kW), Comercial (10-100kW), Industrial (>100kW)",
@@ -68,10 +70,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 2,
+      id: "ws2",
       title: "Legal y Regulatorio",
       icon: Scale,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Marco legal y certificaciones para operación comercial",
       deliverables: [
         "Certificaciones UPME para sistemas fotovoltaicos",
@@ -80,10 +81,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 3,
+      id: "ws3",
       title: "Sourcing y Proveedores",
       icon: Network,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Alianzas estratégicas con fabricantes China y distribuidores locales",
       deliverables: [
         "Proveedores FV: Longi, JA Solar, Trina Solar",
@@ -92,10 +92,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 4,
+      id: "ws4",
       title: "Base de Datos Comercial",
       icon: Database,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Construcción de BD segmentada y estrategia de email marketing",
       deliverables: [
         "BD segmentada: 500+ empresas industrias clave",
@@ -104,10 +103,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 5,
+      id: "ws5",
       title: "Rediseño Web y SEO",
       icon: Globe,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Reestructuración del sitio web con foco en conversión y posicionamiento",
       deliverables: [
         "Nueva arquitectura: Automatización + FV separados",
@@ -116,10 +114,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 6,
+      id: "ws6",
       title: "Alianzas Estratégicas",
       icon: Users,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Partners financieros, técnicos y comerciales",
       deliverables: [
         "Financieros: Bancolombia Leasing, Findeter",
@@ -128,10 +125,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 7,
+      id: "ws7",
       title: "Modelo Financiero",
       icon: DollarSign,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Estructura de ingresos, costos y márgenes objetivo",
       deliverables: [
         "Pricing por servicio y segmento",
@@ -140,10 +136,9 @@ const EnertedRoadmap = () => {
       ]
     },
     {
-      id: 8,
+      id: "ws8",
       title: "KPIs y Gestión",
       icon: BarChart3,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
       description: "Indicadores de gestión comercial, operacional y financiero",
       deliverables: [
         "Dashboard comercial: leads, conversión, pipeline",
@@ -154,12 +149,12 @@ const EnertedRoadmap = () => {
   ];
 
   const keyQuestions = [
-    { category: "Estratégicas", questions: [
+    { category: "Estratégicas", id: "q1", questions: [
       "¿Cuál es la visión a 3 años para estas líneas? (revenue target, market share)",
       "¿Qué tan agresivos quieren ser en pricing? (penetración vs premium)",
       "¿Apetito de riesgo para inversión inicial?"
     ]},
-    { category: "Tácticas", questions: [
+    { category: "Tácticas", id: "q2", questions: [
       "¿Quién toma decisiones de inversión >$X millones COP?",
       "¿Hay proyectos en pipeline que podamos cerrar rápido? (quick wins)",
       "¿Limitaciones que deba conocer? (competencia, exclusividades)"
@@ -167,199 +162,196 @@ const EnertedRoadmap = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden relative">
+    <div className="min-h-screen text-white relative">
       {/* Background image */}
       <div
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{backgroundImage: "url('https://static.atesspower.com/upload/images/20240613/dda75bc0262229d1140bcc3eec59f933.jpg')"}}
       />
-      {/* Dark overlay for readability */}
-      <div className="fixed inset-0 bg-slate-950/85" />
-
-      {/* Animated gradient orbs */}
-      <div className="fixed top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s'}} />
-      <div className="fixed bottom-0 left-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '6s', animationDelay: '2s'}} />
+      {/* Dark overlay */}
+      <div className="fixed inset-0 bg-black/90" />
 
       {/* Header */}
-      <header className={`relative z-10 border-b border-white/5 backdrop-blur-xl transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
-        <div className="max-w-7xl mx-auto px-8 py-8">
-          <div className="flex items-start justify-between">
-            <div>
-              <div className="flex items-center gap-4 mb-2">
-                <img
-                  src="/logo-enerted.jpg"
-                  alt="Enerted Logo"
-                  className="h-12 w-auto"
-                />
-              </div>
-              <p className="text-slate-400 text-lg font-light tracking-wide">Plan Estratégico 2025</p>
-            </div>
+      <header className={`relative z-10 border-b border-white/10 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}>
+        <div className="max-w-5xl mx-auto px-6 py-6">
+          <div className="flex items-center justify-between">
+            <img
+              src="/logo-enerted.jpg"
+              alt="Enerted Logo"
+              className="h-10 w-auto"
+            />
             <div className="text-right">
-              <p className="text-sm text-slate-500 uppercase tracking-wider mb-1">Reunión de Alineación</p>
-              <p className="text-2xl font-bold text-white">13 Febrero 2025</p>
+              <p className="text-xs text-gray-500 uppercase tracking-wider">Plan Estratégico</p>
+              <p className="text-lg font-semibold text-white">2025</p>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 py-12">
-        
-        {/* Mission Statement */}
-        <div className={`mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-orange-400">
-              Objetivo del Contrato
-            </h2>
-            <p className="text-slate-300 leading-relaxed text-lg font-light">
-              Dirección estratégica y liderazgo conceptual para la <span className="text-orange-400 font-medium">estructuración, desarrollo y comercialización</span> de servicios de automatización industrial y productos fotovoltaicos, orientado al <span className="text-white font-medium">crecimiento comercial</span>, posicionamiento estratégico y <span className="text-orange-400 font-medium">fortalecimiento competitivo</span> en el mercado colombiano.
-            </p>
-          </div>
-        </div>
+      <div className="relative z-10 max-w-5xl mx-auto px-6 py-8">
 
-        {/* Timeline */}
-        <div className={`mb-20 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-            <Calendar className="w-8 h-8 text-orange-500" />
-            Roadmap Estratégico
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {phases.map((phase, idx) => (
-              <div 
-                key={phase.id}
-                className={`relative group cursor-pointer transition-all duration-500 hover:scale-105 ${
-                  activePhase === idx ? 'scale-105' : ''
-                }`}
-                onClick={() => setActivePhase(idx)}
-                style={{transitionDelay: `${idx * 100}ms`}}
-              >
-                <div className={`bg-gradient-to-br ${phase.color} p-[2px] rounded-2xl`}>
-                  <div className="bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6 h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                          {phase.period}
-                        </div>
-                        <h3 className="text-xl font-bold mb-1">{phase.title}</h3>
-                        <p className="text-sm text-slate-400">{phase.duration}</p>
-                      </div>
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${phase.color} flex items-center justify-center text-2xl font-bold`}>
-                        {phase.id}
-                      </div>
+        {/* Section: Objetivo */}
+        <section className={`mb-6 transition-all duration-700 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <button
+            onClick={() => toggleSection('objetivo')}
+            className="w-full bg-white/5 border border-white/10 rounded-lg p-5 text-left hover:bg-white/10 transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold text-white">Objetivo del Contrato</h2>
+              <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections['objetivo'] ? 'rotate-180' : ''}`} />
+            </div>
+          </button>
+          {expandedSections['objetivo'] && (
+            <div className="mt-2 bg-black/50 border border-white/10 rounded-lg p-5">
+              <p className="text-gray-300 leading-relaxed">
+                Dirección estratégica y liderazgo conceptual para la <span className="text-white font-medium">estructuración, desarrollo y comercialización</span> de servicios de automatización industrial y productos fotovoltaicos, orientado al crecimiento comercial, posicionamiento estratégico y fortalecimiento competitivo en el mercado colombiano.
+              </p>
+            </div>
+          )}
+        </section>
+
+        {/* Section: Roadmap */}
+        <section className={`mb-6 transition-all duration-700 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <button
+            onClick={() => toggleSection('roadmap')}
+            className="w-full bg-white/5 border border-white/10 rounded-lg p-5 text-left hover:bg-white/10 transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Calendar className="w-5 h-5 text-gray-400" />
+                <h2 className="text-xl font-bold text-white">Roadmap Estratégico</h2>
+              </div>
+              <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections['roadmap'] ? 'rotate-180' : ''}`} />
+            </div>
+          </button>
+          {expandedSections['roadmap'] && (
+            <div className="mt-2 space-y-3">
+              {phases.map((phase) => (
+                <div key={phase.id} className="bg-black/50 border border-white/10 rounded-lg p-5">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{phase.period}</p>
+                      <h3 className="text-lg font-bold text-white">{phase.title}</h3>
+                      <p className="text-sm text-gray-500">{phase.duration}</p>
                     </div>
-                    
-                    <div className="space-y-3 mt-6">
-                      {phase.objectives.map((obj, i) => {
-                        const Icon = obj.icon;
-                        return (
-                          <div 
-                            key={i} 
-                            className="flex items-start gap-3 text-sm group/item"
-                            style={{transitionDelay: `${i * 50}ms`}}
-                          >
-                            <Icon className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-                              obj.status === 'active' 
-                                ? 'text-emerald-400' 
-                                : 'text-slate-500'
-                            } group-hover/item:scale-110 transition-transform`} />
-                            <span className={`${
-                              obj.status === 'active' 
-                                ? 'text-slate-200' 
-                                : 'text-slate-400'
-                            } leading-tight`}>{obj.text}</span>
-                          </div>
-                        );
-                      })}
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl font-bold text-white">
+                      {phase.id}
                     </div>
                   </div>
+                  <div className="space-y-2">
+                    {phase.objectives.map((obj, i) => {
+                      const Icon = obj.icon;
+                      return (
+                        <div key={i} className="flex items-start gap-3 text-sm">
+                          <Icon className="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" />
+                          <span className="text-gray-300">{obj.text}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
+          )}
+        </section>
 
-        {/* Workstreams */}
-        <div className={`mb-20 transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-            <Target className="w-8 h-8 text-orange-500" />
-            Workstreams Estratégicos
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {workstreams.map((ws, idx) => {
-              const Icon = ws.icon;
-              const isSelected = selectedWorkstream === ws.id;
-              
-              return (
-                <div
-                  key={ws.id}
-                  onClick={() => setSelectedWorkstream(isSelected ? null : ws.id)}
-                  className={`cursor-pointer transition-all duration-500 hover:scale-105 ${
-                    isSelected ? 'md:col-span-2 lg:col-span-2' : ''
-                  }`}
-                  style={{transitionDelay: `${idx * 50}ms`}}
-                >
-                  <div className={`${ws.color} p-[2px] rounded-xl h-full`}>
-                    <div className="bg-slate-900/95 backdrop-blur-sm rounded-xl p-5 h-full flex flex-col">
-                      <div className="flex items-start gap-3 mb-3">
-                        <div className={`${ws.color} w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0`}>
-                          <Icon className="w-5 h-5 text-white" />
+        {/* Section: Workstreams */}
+        <section className={`mb-6 transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <button
+            onClick={() => toggleSection('workstreams')}
+            className="w-full bg-white/5 border border-white/10 rounded-lg p-5 text-left hover:bg-white/10 transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Target className="w-5 h-5 text-gray-400" />
+                <h2 className="text-xl font-bold text-white">Workstreams Estratégicos</h2>
+              </div>
+              <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections['workstreams'] ? 'rotate-180' : ''}`} />
+            </div>
+          </button>
+          {expandedSections['workstreams'] && (
+            <div className="mt-2 space-y-2">
+              {workstreams.map((ws) => {
+                const Icon = ws.icon;
+                const isExpanded = expandedSections[ws.id];
+                return (
+                  <div key={ws.id} className="bg-black/50 border border-white/10 rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => toggleSection(ws.id)}
+                      className="w-full p-4 text-left hover:bg-white/5 transition-all"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center">
+                            <Icon className="w-4 h-4 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-white text-sm">{ws.title}</h3>
+                            <p className="text-xs text-gray-500">{ws.description}</p>
+                          </div>
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-sm leading-tight mb-1">{ws.title}</h3>
-                          <p className="text-xs text-slate-400 leading-tight">{ws.description}</p>
-                        </div>
+                        <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                       </div>
-                      
-                      {isSelected && (
-                        <div className="mt-4 pt-4 border-t border-white/10 space-y-2 animate-in fade-in slide-in-from-top-2 duration-500">
-                          <p className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Entregables:</p>
+                    </button>
+                    {isExpanded && (
+                      <div className="px-4 pb-4 pt-2 border-t border-white/5">
+                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Entregables:</p>
+                        <div className="space-y-1">
                           {ws.deliverables.map((del, i) => (
                             <div key={i} className="flex items-start gap-2 text-xs">
-                              <ChevronRight className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
-                              <span className="text-slate-300">{del}</span>
+                              <span className="text-gray-500">•</span>
+                              <span className="text-gray-300">{del}</span>
                             </div>
                           ))}
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
+
+        {/* Section: Preguntas Clave */}
+        <section className={`mb-6 transition-all duration-700 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <button
+            onClick={() => toggleSection('preguntas')}
+            className="w-full bg-white/5 border border-white/10 rounded-lg p-5 text-left hover:bg-white/10 transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Award className="w-5 h-5 text-gray-400" />
+                <h2 className="text-xl font-bold text-white">Preguntas Clave para Alineación</h2>
+              </div>
+              <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections['preguntas'] ? 'rotate-180' : ''}`} />
+            </div>
+          </button>
+          {expandedSections['preguntas'] && (
+            <div className="mt-2 space-y-3">
+              {keyQuestions.map((section) => (
+                <div key={section.id} className="bg-black/50 border border-white/10 rounded-lg p-5">
+                  <h3 className="text-lg font-semibold mb-3 text-white">{section.category}</h3>
+                  <div className="space-y-2">
+                    {section.questions.map((q, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-xs text-white">
+                          {i + 1}
+                        </span>
+                        <p className="text-gray-300 text-sm">{q}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
+              ))}
+            </div>
+          )}
+        </section>
 
-        {/* Key Questions */}
-        <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-            <Award className="w-8 h-8 text-orange-500" />
-            Preguntas Clave para Alineación
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {keyQuestions.map((section, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4 text-orange-400">{section.category}</h3>
-                <div className="space-y-3">
-                  {section.questions.map((q, i) => (
-                    <div key={i} className="flex items-start gap-3 group">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 text-xs font-bold group-hover:scale-110 transition-transform">
-                        {i + 1}
-                      </div>
-                      <p className="text-slate-300 leading-relaxed">{q}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer Credits */}
-        <footer className="mt-16 pt-8 border-t border-white/10 text-center">
-          <p className="text-slate-500 text-sm">
-            Diseñado por <span className="text-orange-400 font-medium">Kyrbot Innovations SAS</span>
+        {/* Footer */}
+        <footer className={`pt-6 border-t border-white/10 text-center transition-all duration-700 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <p className="text-gray-600 text-xs">
+            Diseñado por <span className="text-gray-400">Kyrbot Innovations SAS</span>
           </p>
         </footer>
 
