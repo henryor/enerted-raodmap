@@ -22,7 +22,7 @@ const EnertedRoadmap = () => {
     {
       id: 1,
       title: "FASE 1: FUNDACIONES",
-      period: "Feb - Mar 2025",
+      period: "Feb - Mar 2026",
       duration: "6 semanas",
       objectives: [
         { icon: Scale, text: "Legal: Contratos tipo + certificaciones" },
@@ -35,7 +35,7 @@ const EnertedRoadmap = () => {
     {
       id: 2,
       title: "FASE 2: TRACCIÓN",
-      period: "Abr - Jun 2025",
+      period: "Abr - Jun 2026",
       duration: "12 semanas",
       objectives: [
         { icon: Target, text: "Comercial: Primera campaña de mailing (3 industrias piloto)" },
@@ -47,7 +47,7 @@ const EnertedRoadmap = () => {
     {
       id: 3,
       title: "FASE 3: ESCALA",
-      period: "Jul - Dic 2025",
+      period: "Jul - Dic 2026",
       duration: "6 meses",
       objectives: [
         { icon: TrendingUp, text: "Expansión territorial (otras ciudades)" },
@@ -131,7 +131,7 @@ const EnertedRoadmap = () => {
       description: "Estructura de ingresos, costos y márgenes objetivo",
       deliverables: [
         "Pricing por servicio y segmento",
-        "Proyección revenue 2025",
+        "Proyección revenue 2026",
         "CAPEX inicial y OPEX mensual"
       ]
     },
@@ -179,13 +179,13 @@ const EnertedRoadmap = () => {
               <img
                 src="/logo-enerted.png"
                 alt="Enerted Logo"
-                className="h-10 w-auto"
+                className="h-40 w-auto"
               />
               <span className="text-white text-xl font-light tracking-wide">Innovación</span>
             </div>
             <div className="text-right">
               <p className="text-xs text-gray-500 uppercase tracking-wider">Plan Estratégico</p>
-              <p className="text-lg font-semibold text-white">2025</p>
+              <p className="text-lg font-semibold text-white">2026</p>
             </div>
           </div>
         </div>
